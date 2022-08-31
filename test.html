@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./test.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="main1" style="display: nne;">
+<div class="filex">
+    <div class="preview">
+        <img id="output"/>
+    </div>
+    <form action="">
+        <div class="cus-label">
+        <label for="custom">Choose a file <img src="./icons8-upload-24.png" alt=""></label>
+        <input id="custom" type="file" accept="image/*" onchange="limit(this);loadFile(event);"/>
+        </div>
+    </form>
+</div>
+
+<div class="view">
+<button class="prev-btn" onclick="remove()">Choose another</button>
+<button class="prev-btn2" onclick="profile()">Select this</button>
+</div>
+
+<img id="output2"/>
+
+<!-- <img id="open"/> -->
+
+</div>
+
+<div class="main2">
+
+    <div class="all">
+        <div class="prof">
+            <img id="open"/>
+        </div>
+    <form action="" class="user">
+        <label for="">Username</label>
+        <input type="text" id="username"> <br>
+        <label for="">First name</label>
+        <input type="text" id="first"> <br>
+        <label for="">Last name</label>
+        <input type="text" id="last"> <br>
+        <label for="">Email</label>
+        <input type="email" id="mal"> <br>
+
+        <button onclick="sect()">Submit</button>
+    </form> <br>
+    <button onclick="retrieve()">get</button>
+    </div>
+</div>
+<script src="./test.js"></script>
+</body>
+</html>
