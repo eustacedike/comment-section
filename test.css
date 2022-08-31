@@ -297,6 +297,10 @@ border-radius: 50%;
 .ment-foot img {
     width: 15px;
     cursor: pointer;
+    
+}
+
+.ment-foot img:hover {
     filter: hue-rotate(90deg);
 }
 

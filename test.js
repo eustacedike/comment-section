@@ -176,14 +176,27 @@ function sub () {
 
   var commentum = document.getElementById('commentum').value;
   localStorage.setItem(`${album}2`, commentum);
-  // window.location.href='./comments.html';
+  
+
+  
+
+window.location.href='./comments.html';
+}
+
+function loadingding (){
+  var containerSave = document.getElementById('mainBody').innerHTML;
+
+  localStorage.setItem('contain',containerSave);
 }
 
 function dropComment () {
   
 var lastKey = localStorage.getItem('allKey');
+var obtainContain = localStorage.getItem('contain');
+console.log(obtainContain);
 
-
+var BODY = document.getElementById('mainBody');
+BODY.innerHTML = obtainContain;
 
 var localStoragesKeys = Object.keys(localStorage);
   let searchKeys = localStoragesKeys.map( e => e.toLowerCase());
@@ -195,6 +208,31 @@ var localStoragesKeys = Object.keys(localStorage);
       var yourDP = current.AVATAR;
       var fNAME = current.NAME.toUpperCase();
       var mailYou = current.eMAIL;
+
+      var dat1 = new Date().getDate();
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var dat2 = months[new Date().getMonth()];
+
+var dat3 = new Date().getFullYear();
+var dat4 = new Date().getHours();
+var dat5 = new Date().getMinutes();
+var pmam = 'am';
+
+if (dat5 < 10) {
+  dat5 = `0${dat5}`;
+}
+if (dat4 < 10) {
+  dat4 = `0${dat4}`;
+}
+
+if (dat4>12) {
+  dat4 = dat4 - 12;
+  pmam = 'pm';
+}
+
+var datee = `${dat1} ${dat2} ${dat3}   ${dat4}:${dat5}${pmam}`;
+
 
 var theComment = localStorage.getItem(`${album}2`);
 
@@ -218,14 +256,14 @@ mentHead.classList = 'ment-head';
 mentHead.appendChild(mentHeadImg);
 mentHead.appendChild(mentHeadDiv);
 
-// mentHeadImg.src=;
+mentHeadImg.src = "data:image/png;base64," + yourDP;
 mentHeadDiv.innerHTML = `<h5>${fNAME}</h5><p>@${album}</p>`;
 
 mentBody.classList = 'ment-body';
 mentBody.innerHTML = `<p>${theComment}</p>`;
 
 mentFoot.classList = 'ment-foot';
-mentFoot.innerHTML = `<h6>${album}</h6>`;
+mentFoot.innerHTML = `<h6>${datee}</h6>`;
 mentFoot.appendChild(mentFootDiv);
 
 mentFootDiv.innerHTML = `<img src="./icons8-thumbs-up-90.png" alt="">
@@ -233,16 +271,8 @@ mentFootDiv.innerHTML = `<img src="./icons8-thumbs-up-90.png" alt="">
 
 Container.appendChild(commentBox);
 
+var containerSave = document.getElementById('mainBody').innerHTML;
 
-
-
-// element.textContent = "I have changed!";
-
-      var demo = document.getElementById('demo');
-      demo.innerHTML = theComment;
-
-
-
-
+  localStorage.setItem('contain',containerSave);
 
 }
