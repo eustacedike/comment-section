@@ -1,13 +1,23 @@
 // Limit size of upload file
 function limit (a) {
-    if(a.files[0].size > 2097152){
-       alert("File is too big! upload an image less than 2mb");
+    if(a.files[0].size > 1048576){
+       alert("File is too big! upload an image less than 1mb");
        a.value = "";
     };
 
     document.querySelector('.view').style.display = "flex";
 };
 
+function vieww () {
+  document.querySelector('.main1').style.display='none';
+  document.querySelector('.main2').style.display='block';
+
+  let open =  document.getElementById("open");
+
+  if (open.src === '') {
+    open.src = './icons8-person-64.png';
+  }
+}
 
 //Preview file
 var loadFile = function(event) {
@@ -23,6 +33,7 @@ var loadFile = function(event) {
     output.onload = function() {
       URL.revokeObjectURL(output.src) 
     }
+
   };
 
 function profile () {
@@ -42,10 +53,15 @@ const getBase64Image = (img) => {
   };
   
   const imgData = getBase64Image(output2);
+console.log(imgData);
 
+if (imgData === 'data:,') {
+  open.src = './icons8-person-64.png';
+} else {
   open.src = "data:image/png;base64," + imgData;
-
+}
   document.querySelector('.main1').style.display='none';
+  document.querySelector('.main2').style.display='block';
 }
 
 function remove () {
@@ -135,8 +151,12 @@ var lastKey = localStorage.getItem('allKey');
       var plex2h6 = document.getElementById('plex2h6');
       var plex2p = document.getElementById('plex2p');
 
-      // plexIMG.src = '';
-      plexIMG.src = "data:image/png;base64," + yourDP;
+      if (yourDP === 'data:,') {
+        plexIMG.src = './icons8-person-64.png';
+      } else {
+        plexIMG.src = "data:image/png;base64," + yourDP;
+      }
+      
       plex2h3.innerHTML = fNAME;
       plex2h6.innerHTML = mailYou;
       plex2p.innerHTML = album;
@@ -185,8 +205,16 @@ window.location.href='./comments.html';
 
 function loadingding (){
   var containerSave = document.getElementById('mainBody').innerHTML;
+  localStorage.setItem('contain',containerSave);
+}
+
+function landed () {
+  var containerSave = document.getElementById('mainBody').innerHTML;
+  console.log(containerSave);
 
   localStorage.setItem('contain',containerSave);
+
+  window.location.href='./test.html';
 }
 
 function dropComment () {
@@ -236,7 +264,9 @@ var datee = `${dat1} ${dat2} ${dat3}   ${dat4}:${dat5}${pmam}`;
 
 var theComment = localStorage.getItem(`${album}2`);
 
-var Container = document.getElementById('container');
+// var Container = document.getElementById('container');
+var Container = document.createElement('div');
+Container.classList='container';
 
 var commentBox = document.createElement("div");
 var mentHead = document.createElement('div');
@@ -256,7 +286,15 @@ mentHead.classList = 'ment-head';
 mentHead.appendChild(mentHeadImg);
 mentHead.appendChild(mentHeadDiv);
 
-mentHeadImg.src = "data:image/png;base64," + yourDP;
+
+if (yourDP === 'data:,') {
+  mentHeadImg.src = './icons8-person-64.png';
+} else {
+  mentHeadImg.src = "data:image/png;base64," + yourDP;
+}
+
+
+
 mentHeadDiv.innerHTML = `<h5>${fNAME}</h5><p>@${album}</p>`;
 
 mentBody.classList = 'ment-body';
@@ -270,9 +308,10 @@ mentFootDiv.innerHTML = `<img src="./icons8-thumbs-up-90.png" alt="">
 <img src="./icons8-thumbs-down-90.png" alt="">`
 
 Container.appendChild(commentBox);
+BODY.appendChild(Container);
 
-var containerSave = document.getElementById('mainBody').innerHTML;
-
-  localStorage.setItem('contain',containerSave);
+var containerSave2 = document.getElementById('mainBody').innerHTML;
+// console.log(containerSave2);
+  localStorage.setItem('contain',containerSave2);
 
 }
