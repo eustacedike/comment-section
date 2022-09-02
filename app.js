@@ -110,7 +110,7 @@ function sect () {
     // work.src = "data:image/png;base64," + imgData;
 
 
-    window.location.href='./name.html';
+    window.location.href='./comment.html';
   };
   
 }
@@ -200,7 +200,7 @@ function sub () {
 
   
 
-window.location.href='./comments.html';
+window.location.href='./index.html';
 }
 
 function loadingding (){
@@ -214,7 +214,7 @@ function landed () {
 
   localStorage.setItem('contain',containerSave);
 
-  window.location.href='./test.html';
+  window.location.href='./details.html';
 }
 
 function dropComment () {
