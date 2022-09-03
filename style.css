@@ -14,8 +14,12 @@ body {
      /* background-color: red; */
 }
 
-.filex {
-    
+.filex p {
+    text-align: center;
+    margin: 10px 0;
+    font-size: smaller;
+    text-decoration: underline;
+    color: grey;
 }
 
 
@@ -26,10 +30,14 @@ body {
     max-width: 350px;
     max-height: 350px;
     height: 50vw;
-    margin: 0 auto;
+    margin: 40px auto;
     border: 2px solid blue;
-    border-bottom: none;
-    
+    /* border-radius: 9px; */
+    /* border-bottom: none; */
+    background-image: url(./uploadic.jpg);
+    background-size: 100%;
+  
+    /* margin-top: 40px; */
 }
 
 #custom {
@@ -38,8 +46,10 @@ body {
 
 .cus-label label {
     /* background-color: red; */
-    padding: 10px 35px;
+    padding: 10px 17%;
     cursor: pointer;
+    border-radius: 6px;
+    background: linear-gradient(blue,navy);
 }
 
 .cus-label img {
@@ -49,15 +59,15 @@ body {
 }
 
 .cus-label {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     border-bottom: none;
     text-align: center;
     width: 200px;
     padding: 10px 0;
     margin: 0 auto;
    color: white;
-    background: blue;
-    border-radius: 0px 0px 6px 6px;
+    /* background: blue; */
+    
 
     min-width: 200px;
     width: 50vw;
@@ -78,7 +88,7 @@ body {
    font-size: 13px;
     /* min-width: 150px; */
     align-self: center;
-    background: linear-gradient(blue,navy);
+    background: linear-gradient(crimson,red);
 }
 
 .cwai button:hover {
@@ -320,12 +330,13 @@ border-radius: 50%;
     /* border: 2px solid red; */
     align-items: flex-end;
     border-top: 1px solid lightgray;
+    
 }
 
 .ment-foot img {
     width: 15px;
     cursor: pointer;
-    
+    transition: 700ms;
 }
 
 .ment-foot img:hover {

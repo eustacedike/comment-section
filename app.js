@@ -215,6 +215,8 @@ function landed () {
   localStorage.setItem('contain',containerSave);
 
   window.location.href='./details.html';
+
+  localStorage.removeItem("hasCodeRunBefore");
 }
 
 function dropComment () {
@@ -307,11 +309,15 @@ mentFoot.appendChild(mentFootDiv);
 mentFootDiv.innerHTML = `<img src="./icons8-thumbs-up-90.png" alt="">
 <img src="./icons8-thumbs-down-90.png" alt="">`
 
+if (localStorage.getItem("hasCodeRunBefore") === null) {
+  /** Your code here. **/
 Container.appendChild(commentBox);
 BODY.appendChild(Container);
 
 var containerSave2 = document.getElementById('mainBody').innerHTML;
 // console.log(containerSave2);
   localStorage.setItem('contain',containerSave2);
+  localStorage.setItem("hasCodeRunBefore", true);
+}
 
 }
